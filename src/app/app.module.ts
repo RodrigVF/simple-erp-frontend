@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,14 +12,13 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MenuModule } from './pages/menu/menu.module';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-  ],
+  declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +30,7 @@ import { MenuModule } from './pages/menu/menu.module';
     NgbModule,
     NgSelectModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

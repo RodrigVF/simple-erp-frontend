@@ -28,7 +28,7 @@
           <td>{{ nota.id }}</td>
           <td>{{ nota.cliente?.nome }}</td>
           <td>{{ nota.numeroDocumento}}</td>
-          <td>{{ nota.valorTotal | currency }}</td>
+          <td>{{ nota.valorTotal | currency:'BRL' }}</td>
           <td>{{ nota.notaFiscalStatus?.nome }}</td>
           <td class="text-center">{{ nota.dataEmissao | date:'dd/MM/yyyy' }}</td>
           <td class="actions-column text-center">
