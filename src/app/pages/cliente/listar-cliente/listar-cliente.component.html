@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Clientes</h2>
+    <button class="btn btn-success disabled btn-sm" aria-label="Cadastrar Cliente">
+      <i class="fas fa-user-plus"></i> Cadastrar Cliente (Em breve)
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="table table-striped table-bordered">
+      <thead class="text-center">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CNPJ / CPF</th>
+          <th>Endereço</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{ cliente.id }}</td>
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.documentoIdentificacao}}</td>
+          <td>{{ cliente.endereco }}</td>
+          <td>{{ cliente.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="clientes.length === 0" class="alert alert-warning" role="alert">
+    Não há clientes cadastrados.
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <button (click)="irParaPagina(paginaAtual - 1)" [disabled]="paginaAtual <= 1" class="btn btn-secondary btn-sm me-3" aria-label="Página Anterior">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <span class="mx-3 text-center">Página {{ paginaAtual }}</span>
+    <button (click)="irParaPagina(paginaAtual + 1)" [disabled]="!temMaisClientes" class="btn btn-secondary btn-sm ms-3" aria-label="Próxima Página">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
