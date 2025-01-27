@@ -68,18 +68,18 @@ export class CriarNotaFiscalComponent implements OnInit {
   }
 
   calcularImpostos(): void {
-    this.notaFiscal.icms = parseFloat(
-      (this.notaFiscal.valorTotal * 0.18).toFixed(2)
-    );
-    this.notaFiscal.ipi = parseFloat(
-      (this.notaFiscal.valorTotal * 0.05).toFixed(2)
-    );
-    this.notaFiscal.pis = parseFloat(
-      (this.notaFiscal.valorTotal * 0.01).toFixed(2)
-    );
-    this.notaFiscal.cofins = parseFloat(
-      (this.notaFiscal.valorTotal * 0.02).toFixed(2)
-    );
+    this.notaFiscalService.calcularImpostos(this.notaFiscal.valorTotal).subscribe({
+      next: (impostos) => {
+        this.notaFiscal.icms = parseFloat((impostos.icms).toFixed(2));
+        this.notaFiscal.ipi = parseFloat((impostos.ipi).toFixed(2));
+        this.notaFiscal.pis = parseFloat((impostos.pis).toFixed(2));
+        this.notaFiscal.cofins = parseFloat((impostos.cofins).toFixed(2));
+      },
+      error: (error) => {
+        console.log(`Erro ao calcular impostos!`, JSON.stringify(error));
+        alert(`Erro ao calcular impostos!`);
+      },
+    });
 
     this.impostosCalculados = true;
   }

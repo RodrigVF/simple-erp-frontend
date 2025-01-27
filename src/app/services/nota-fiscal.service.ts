@@ -17,7 +17,12 @@ export class NotaFiscalService {
     return this.http.post<NotaFiscal>(`${this.apiUrl}`, notaFiscal);
   }
 
-  buscarNotasFiscais(tipoId: number, relations: boolean, pagina: number = 1, limite: number = 10): Observable<NotaFiscal[]> {
+  buscarNotasFiscais(
+    tipoId: number,
+    relations: boolean,
+    pagina: number = 1,
+    limite: number = 10
+  ): Observable<NotaFiscal[]> {
     let params = new HttpParams()
       .set('pagina', pagina.toString())
       .set('limite', limite.toString());
@@ -50,5 +55,9 @@ export class NotaFiscalService {
 
   deletarRascunho(id: number): Observable<NotaFiscal> {
     return this.http.delete<NotaFiscal>(`${this.apiUrl}/${id}`, {});
+  }
+
+  calcularImpostos(valorTotal: number): Observable<NotaFiscal> {
+    return this.http.get<NotaFiscal>(`${this.apiUrl}/calcular-impostos?valorTotal=${valorTotal}`,{});
   }
 }

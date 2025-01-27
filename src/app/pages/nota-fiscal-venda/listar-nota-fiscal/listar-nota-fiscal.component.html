@@ -6,6 +6,10 @@
     </button>
   </div>
 
+
+  <div *ngIf="notasFiscais.length === 0" class="alert alert-warning" role="alert">
+    Não há notas fiscais cadastradas.
+  </div>
   <div class="table-container">
     <table class="table table-striped table-bordered">
       <thead class="text-center">
@@ -35,18 +39,17 @@
               <button class="btn btn-danger btn-sm" (click)="deletarRascunho(nota.id)" aria-label="Deletar Rascunho">
                 <i class="fas fa-trash-alt"></i> Deletar
               </button>
-              <button (click)="navegarParaEditarNotasFiscaisVenda(nota.id)" class="btn btn-warning btn-sm" aria-label="Editar Nota Fiscal">
+              <button (click)="navegarParaEditarNotasFiscaisVenda(nota.id)" class="btn btn-warning btn-sm" aria-label="Editar Rascunho">
                 <i class="fas fa-edit"></i> Editar
+              </button>
+                <button class="btn btn-info btn-sm disabled" aria-label="Visualizar Nota Fiscal">
+                <i class="fa-solid fa-eye"></i> Visualizar (Em breve)
               </button>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <div *ngIf="notasFiscais.length === 0" class="alert alert-warning" role="alert">
-    Não há notas fiscais cadastradas.
   </div>
 
   <div class="d-flex justify-content-center align-items-center">
