@@ -1,27 +1,28 @@
-# SimpleErp
+# Módulo de Lançamento de Notas Fiscais de Saída
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+## Escopo
 
-## Development server
+Este projeto é um módulo simplificado para lançamento de notas fiscais de saída (venda), desenvolvido para atender uma empresa fictícia do setor industrial de eletroeletrônicos, enquadrada no regime tributário **Lucro Real**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Simplificações
 
-## Code scaffolding
+As tabelas foram estruturadas de forma básica, contendo apenas os campos necessários para este módulo. No entanto, elas podem ser expandidas futuramente.  
+**Exemplo:** Atualmente, a tabela de **Clientes** não possui colunas para município/estado, informações essenciais para cálculos automáticos de tributos como ISS e ICMS.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este módulo poderá ser integrado futuramente com outros módulos, como:
 
-## Build
+- **Notas Fiscais de Entrada (compra):** criando um único módulo de lançamento de notas.
+- **Lançamentos Contábeis:** geração automática de lançamentos baseados nas notas.
+- **Geração e Importação de Notas Fiscais:** automação de processos fiscais e tributários.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Algumas informações relevantes para uma nota fiscal foram simplificadas e não foram incluídas nesta versão inicial, como:
 
-## Running unit tests
+- Frete
+- Seguro
+- IRPJ
+- CSLL
+- CFOP
+- Descrição detalhada dos produtos na nota
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Veja também a API deste projeto
+https://github.com/RodrigVF/simple-erp-api
